@@ -21686,8 +21686,8 @@ module.exports = traverseAllChildren;
 var React = __webpack_require__(80);
 var ReactDOM = __webpack_require__(79);
 
-var Main = React.createClass({
-    displayName: 'Main',
+var Portfolio = React.createClass({
+    displayName: 'Portfolio',
 
     render: function render() {
         return React.createElement(
@@ -21698,7 +21698,7 @@ var Main = React.createClass({
     }
 });
 
-ReactDOM.render(React.createElement(Main, null), document.getElementById('app'));
+ReactDOM.render(React.createElement('portfolio', null), document.getElementById('app'));
 
 /***/ })
 /******/ ]);
