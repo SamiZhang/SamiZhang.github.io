@@ -21698,7 +21698,7 @@ var Portfolio = React.createClass({
     }
 });
 
-ReactDOM.render(React.createElement('portfolio', null), document.getElementById('app'));
+ReactDOM.render(React.createElement(Portfolio, null), document.getElementById('app'));
 
 /***/ })
 /******/ ]);
