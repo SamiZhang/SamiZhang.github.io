@@ -1,0 +1,19 @@
+.background_img {
+    position: absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+}
+
+.name {
+    position: relative;
+    color: white;
+    font-size: 92px;
+}
+
+.title {
+    position: relative;
+    color: white;
+    font-size: 40px;
+}
