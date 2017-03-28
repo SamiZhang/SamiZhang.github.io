@@ -1,13 +1,10 @@
-require('style-loader!css-loader!./Portfolio.css');
-
+require('style-loader!css-loader!../stylesheets/home.css');
 var React = require('react');
-var ReactDOM = require('react-dom');
 
-
-var Portfolio = React.createClass({
+var Home = React.createClass ({
     render: function () {
         return (
-            <div className="portfolio">
+            <div className="home">
                 <img className="background_img" src="./img/relax.gif" />
                 
                 <div className="name">
@@ -21,5 +18,4 @@ var Portfolio = React.createClass({
     }
 });
 
-
-ReactDOM.render(<Portfolio />, document.getElementById('app'))
+module.exports = Home;
