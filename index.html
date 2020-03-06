@@ -21,5 +21,31 @@
 </head>
 <body>
 StoredDataManager index.js
+<button id="click" type="button" class="button">CLICK ME</button>
+<script>
+    var closeButton = document.querySelector('#click');
+    closeButton.addEventListener('click', function() {
+        // window.close();
+        console.log('[DEBUG - SAMI]');
+        if (document.hasStorageAccess && document.requestStorageAccess) {
+            document.hasStorageAccess().then(hasAccess => {
+                console.log('[DEBUG - SAMI] hasStorageAccess called', hasAccess);
+                if(hasAccess) {
+                    console.log('[DEBUG - SAMI] hasAccess');
+                    // localStorage.setItem('SAMI', 'TESTING');
+                } else {
+                    console.log('[DEBUG - SAMI] noAccess');
+                    document.requestStorageAccess().then(success => {
+                        if(success) {
+                            console.log('[DEBUG - SAMI] requestSuccessful');
+                        } else {
+                            console.log('[DEBUG - SAMI] requestNotSuccessful');
+                        }
+                    });
+                }
+            });
+        }
+    }, false);
+</script>
 </body>
 </html>
