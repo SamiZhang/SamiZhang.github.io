@@ -92,6 +92,7 @@ postRobot.on('setData', function prSetData(event) {
 });
 
 postRobot.on('getData', function prGetData(event) {
+    console.log('[DEBUG - SAMI] getData postRobot', event);
     if (event.data.name) {
         // if (event.data.cookieOnly) {
         //     return {
