@@ -1,7 +1,7 @@
 /* global postRobot */ // tell eslint that postRobot is globally defined
 /* global Cookies */ // tell eslint that Cookies is globally defined
-console.log('[DEBUG] loading storedDataManager.js')
-console.log('[DEBUG] postRobot loaded: ', postRobot);
+console.log('[DEBUG - SAMI] loading storedDataManager.js')
+console.log('[DEBUG - SAMI] postRobot loaded: ', postRobot);
 var localStorageEnabled = false;
 
 // source: https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API
@@ -49,6 +49,7 @@ function getCookie(name) {
 }
 
 function getLocalStorage(name) {
+    console.log('[DEBUG - SAMI] getLocalStorage', name);
     // if (localStorageEnabled) {
     return localStorage.getItem(name);
     // }
@@ -67,6 +68,7 @@ function clearLocalStorage(name) {
 }
 
 function checkStorageThenCookie(name) {
+    console.log('[DEBUG - SAMI] checkStorageThenCookie', name);
     return getLocalStorage(name) // || getCookie(name);
 }
 
