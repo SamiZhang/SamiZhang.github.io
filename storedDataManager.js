@@ -84,12 +84,13 @@ postRobot.on('setData', function prSetData(event) {
 
         if (document.hasStorageAccess && document.requestStorageAccess) {
             document.hasStorageAccess().then(hasAccess => {
-                if (hasAccess) {
-                    setLocalStorage(event.data.name, event.data.value);
-                    console.log('has access for write');
-                } else {
-                    console.log('no access for write');
+                if (!hasAccess) {
+                    return document.requestStorageAccess();
+                    console.log('[DEBUG - SAMI] requested access');
                 }
+            }).then(() => {
+                setLocalStorage(event.data.name, event.data.value);
+                console.log('[DEBUG - SAMI] set in local storage with access');
             })
         }
 
