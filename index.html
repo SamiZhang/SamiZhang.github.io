@@ -31,11 +31,13 @@ StoredDataManager index.js
             document.hasStorageAccess().then(hasAccess => {
                 console.log('[DEBUG - SAMI]??????????????????????????????????????');
                 if (!hasAccess) {
-                    return document.requestStorageAccess();
+                    console.log('[DEBUG - SAMI]^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^');
+                    console.log(document.requestStorageAccess());
+                    // return document.requestStorageAccess();
                     console.log('[DEBUG - SAMI] requested access');
                 }
             }).then(() => {
-                console.log('[DEBUG - SAMI]^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^');
+                console.log('[DEBUG - SAMI]+++++++++++++++++++++++++++++++++');
                 localStorage.getItem('sr_ssotoken');
                 console.log('[DEBUG - SAMI] get token from local storage with access');
             })
