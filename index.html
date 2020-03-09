@@ -28,22 +28,28 @@ StoredDataManager index.js
         // window.close();
         console.log('[DEBUG - SAMI]!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
         if (document.hasStorageAccess && document.requestStorageAccess) {
-            document.hasStorageAccess().then(hasAccess => {
-                console.log('[DEBUG - SAMI] hasStorageAccess called', hasAccess);
-                if(hasAccess) {
-                    console.log('[DEBUG - SAMI] hasAccess');
-                    // localStorage.setItem('SAMI', 'TESTING');
-                } else {
-                    console.log('[DEBUG - SAMI] noAccess');
-                    document.requestStorageAccess().then(success => {
-                        if(success) {
-                            console.log('[DEBUG - SAMI] requestSuccessful');
-                        } else {
-                            console.log('[DEBUG - SAMI] requestNotSuccessful');
-                        }
-                    });
-                }
-            });
+            document.requestStorageAccess().then(success => {
+                console.log(success);
+            })
+
+
+
+            // document.hasStorageAccess().then(hasAccess => {
+            //     console.log('[DEBUG - SAMI] hasStorageAccess called', hasAccess);
+            //     if(hasAccess) {
+            //         console.log('[DEBUG - SAMI] hasAccess');
+            //         // localStorage.setItem('SAMI', 'TESTING');
+            //     } else {
+            //         console.log('[DEBUG - SAMI] noAccess');
+            //         document.requestStorageAccess().then(success => {
+            //             if(success) {
+            //                 console.log('[DEBUG - SAMI] requestSuccessful');
+            //             } else {
+            //                 console.log('[DEBUG - SAMI] requestNotSuccessful');
+            //             }
+            //         });
+            //     }
+            // });
         }
     }, false);
 </script>
