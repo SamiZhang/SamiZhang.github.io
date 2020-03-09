@@ -72,6 +72,8 @@ function checkStorageThenCookie(name) {
     return getLocalStorage(name) // || getCookie(name);
 }
 
+let TokenBoi;
+
 postRobot.on('setData', function prSetData(event) {
     var daysToExpire = event.data.daysToExpire || 3650; // default to 10yr, like sso cookie
     var domain = event.data.domain || '.shoprunner.com'; // default to .shoprunner.com base domain
@@ -107,6 +109,24 @@ postRobot.on('setData', function prSetData(event) {
 postRobot.on('getData', function prGetData(event) {
     console.log('[DEBUG - SAMI] getData postRobot', event);
     if (event.data.name) {
+        if (document.hasStorageAccess && document.requestStorageAccess) {
+            document.hasStorageAccess().then(hasAccess => {
+                console.log('[DEBUG - SAMI] HAS ACCESS', hasAccess);
+                if (!hasAccess) {
+                    console.log('[DEBUG - SAMI] NO ACCESS');
+                    console.log(document.requestStorageAccess());
+                    // return document.requestStorageAccess();
+                    console.log('[DEBUG - SAMI] REQUESTED ACCESS');
+                }
+            }).then(() => {
+                console.log('[DEBUG - SAMI] THEN WHAT?????');
+                const token = localStorage.getItem('sr_ssotoken');
+                console.log('[DEBUG - SAMI] get token from local storage with access!!!!!!!!!!!!!!!', token);
+            })
+        }
+
+
+
         // if (event.data.cookieOnly) {
         //     return {
         //         value: getCookie(event.data.name),
