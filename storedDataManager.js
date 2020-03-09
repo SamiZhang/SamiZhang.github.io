@@ -81,7 +81,19 @@ postRobot.on('setData', function prSetData(event) {
             expires: daysToExpire,
             domain: domain,
         });
-        setLocalStorage(event.data.name, event.data.value);
+
+        if (document.hasStorageAccess && document.requestStorageAccess) {
+            document.hasStorageAccess().then(hasAccess => {
+                if (hasAccess) {
+                    setLocalStorage(event.data.name, event.data.value);
+                    console.log('has access for write');
+                } else {
+                    console.log('no access for write');
+                }
+            })
+        }
+
+        // setLocalStorage(event.data.name, event.data.value);
 
         return {
             value: checkStorageThenCookie(event.data.name),
