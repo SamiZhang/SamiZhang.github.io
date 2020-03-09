@@ -38,8 +38,8 @@ StoredDataManager index.js
                 }
             }).then(() => {
                 console.log('[DEBUG - SAMI]+++++++++++++++++++++++++++++++++');
-                localStorage.getItem('sr_ssotoken');
-                console.log('[DEBUG - SAMI] get token from local storage with access');
+                const token = localStorage.getItem('sr_ssotoken');
+                console.log('[DEBUG - SAMI] get token from local storage with access', token);
             })
 
 
