@@ -109,14 +109,14 @@ postRobot.on('setData', function prSetData(event) {
 postRobot.on('getData', function prGetData(event) {
     console.log('[DEBUG - SAMI] getData postRobot', event);
     if (event.data.name) {
+        console.log('DEBUG ???? +++++ !!!!! ~~~~');
         if (document.hasStorageAccess && document.requestStorageAccess) {
             document.hasStorageAccess().then(hasAccess => {
                 console.log('[DEBUG - SAMI] HAS ACCESS', hasAccess);
                 if (!hasAccess) {
                     console.log('[DEBUG - SAMI] NO ACCESS');
                     console.log(document.requestStorageAccess());
-                    // return document.requestStorageAccess();
-                    console.log('[DEBUG - SAMI] REQUESTED ACCESS');
+                    return document.requestStorageAccess();
                 }
             }).then(() => {
                 console.log('[DEBUG - SAMI] THEN WHAT?????');
