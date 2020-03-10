@@ -198,14 +198,14 @@
      */
     function storeSSOToken(token) {
         try {
-            console.log('writing the sso_token to local storage on: ', window.location.hostname);
+            console.log('[DEBUG - SAMI] writing the sso_token to local storage on: ', window.location.hostname);
             window.localStorage['sr_ssotoken'] = token;
             alerts('Local Storage SSO set to ' + token + '.');
         } catch (error) {
             alerts('Can not write to local storage: ' + error);
         }
 
-        console.log('writing the sso_token to a cookie on: .shoprunner.com: token: ', token);
+        console.log('[DEBUG - SAMI] writing the sso_token to a cookie on: .shoprunner.com: token: ', token);
         setCookie('sr_ssotoken', token, '.shoprunner.com');
         alerts('Cookie SSO set to ' + token + '.');
     }
