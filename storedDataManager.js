@@ -84,20 +84,21 @@ postRobot.on('setData', function prSetData(event) {
             domain: domain,
         });
 
-        // if (document.hasStorageAccess && document.requestStorageAccess) {
-        //     document.hasStorageAccess().then(hasAccess => {
-        //         if (!hasAccess) {
-        //             return document.requestStorageAccess();
-        //             console.log('[DEBUG - SAMI] requested access');
-        //         }
-        //     }).then(() => {
-        //         setLocalStorage(event.data.name, event.data.value);
-        //         console.log('[DEBUG - SAMI] set in local storage with access');
-        //     })
-        // }
+        if (document.hasStorageAccess && document.requestStorageAccess) {
+            document.hasStorageAccess().then(hasAccess => {
+                if (!hasAccess) {
+                    return document.requestStorageAccess();
+                    console.log('[DEBUG - SAMI] requested access');
+                }
+            }).then(() => {
+                console.log('[DEBUG - SAMI] set in local storage with access');
+                setLocalStorage(event.data.name, event.data.value);
+                console.log('[DEBUG - SAMI] [][][][][][][][][][][][][][][][][][][]][][][]]');
+            })
+        }
 
         console.log('[DEBUG - SAMI] setData in io');
-        setLocalStorage(event.data.name, event.data.value);
+        // setLocalStorage(event.data.name, event.data.value);
 
         return {
             value: checkStorageThenCookie(event.data.name),
