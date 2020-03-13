@@ -40,7 +40,7 @@ function setCookie(name, value, attributes) {
 
 function setLocalStorage(name, value) {
     if (localStorageEnabled) {
-        localStorage.setItem(name, value);
+        sessionStorage.setItem(name, value);
     }
 }
 
@@ -51,7 +51,7 @@ function getCookie(name) {
 function getLocalStorage(name) {
     console.log('[DEBUG - SAMI] getLocalStorage', name);
     // if (localStorageEnabled) {
-    return localStorage.getItem(name);
+    return sessionStorage.getItem(name);
     // }
 
     // return null;
